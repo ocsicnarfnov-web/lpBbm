@@ -30,6 +30,11 @@ export default async function LoginPage() {
               </a>
             </p>
           </div>
+          <div className="mt-4 text-center">
+            <a href="/recover" className="text-sm text-red-500 hover:text-red-600">
+              Account deactivated? Recover here
+            </a>
+          </div>
         </div>
       </div>
     </div>

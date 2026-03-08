@@ -17,6 +17,7 @@ A full-featured farm management application built on Next.js 16 with SQLite data
 - [x] **Complete Broiler Breeder Management App**
   - [x] Authentication system (JWT, bcrypt, user roles)
   - [x] Login & Registration pages
+  - [x] Account recovery page for deactivated users
   - [x] Dashboard with stats overview
   - [x] Farm Profile management with logo upload
   - [x] Flock Management (CRUD, transfers, age/livability calculations)
@@ -48,8 +49,9 @@ A full-featured farm management application built on Next.js 16 with SQLite data
 
 | File/Directory | Purpose | Status |
 |----------------|---------|--------|
-| `src/app/login/` | Login page with JWT auth | ✅ Ready |
+| `src/app/login/` | Login page with JWT auth + recovery link | ✅ Ready |
 | `src/app/register/` | Registration page | ✅ Ready |
+| `src/app/recover/` | Account recovery page | ✅ Ready |
 | `src/app/dashboard/` | Main dashboard layout | ✅ Ready |
 | `src/app/dashboard/farm-profile/` | Farm profile management | ✅ Ready |
 | `src/app/dashboard/flock/` | Flock management | ✅ Ready |
@@ -74,6 +76,7 @@ A full-featured farm management application built on Next.js 16 with SQLite data
 ## Key Features
 
 - **First user auto-becomes admin**
+- **Account recovery** - deactivated users can reactivate with secret code (RECOVER-2024)
 - **Age in weeks** calculated from loading date
 - **Livability %** = (Ending Pop / Beginning Pop) × 100
 - **Depletion Rate %** = (Total Mortality / Beginning Pop) × 100
@@ -89,3 +92,4 @@ A full-featured farm management application built on Next.js 16 with SQLite data
 |------|---------|
 | Initial | Template created with base setup |
 | 2026-03-08 | Complete Broiler Breeder Management App built |
+| 2026-03-08 | Added account recovery page for deactivated users |
