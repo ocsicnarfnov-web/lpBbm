@@ -1,10 +1,10 @@
-# Active Context: Next.js Starter Template
+# Active Context: Broiler Breeder Management App
 
 ## Current State
 
-**Template Status**: ✅ Ready for development
+**App Status**: ✅ Complete - Broiler Breeder Management System (BreederPro)
 
-The template is a clean Next.js 16 starter with TypeScript and Tailwind CSS 4. It's ready for AI-assisted expansion to build any type of application.
+A full-featured farm management application built on Next.js 16 with SQLite database, JWT authentication, and pastel green UI theme.
 
 ## Recently Completed
 
@@ -14,74 +14,78 @@ The template is a clean Next.js 16 starter with TypeScript and Tailwind CSS 4. I
 - [x] ESLint configuration
 - [x] Memory bank documentation
 - [x] Recipe system for common features
+- [x] **Complete Broiler Breeder Management App**
+  - [x] Authentication system (JWT, bcrypt, user roles)
+  - [x] Login & Registration pages
+  - [x] Dashboard with stats overview
+  - [x] Farm Profile management with logo upload
+  - [x] Flock Management (CRUD, transfers, age/livability calculations)
+  - [x] Feed Management (categories, inventory, incoming, consumption)
+  - [x] Mortality Management (mortality, spot cull, spent cull, missex)
+  - [x] Egg Production Management (hatching/non-hatching, Excel export)
+  - [x] Employee Management (CRUD, tenure calculation, photo upload)
+  - [x] Settings page (admin user access management)
+  - [x] Responsive sidebar navigation
+  - [x] Pastel green color scheme
+
+## Database Schema
+
+| Table | Purpose |
+|-------|---------|
+| `users` | User accounts with roles (admin/manager/supervisor/worker) |
+| `farm_profile` | Farm name, address, logo |
+| `flocks` | Flock records with house number, breed, loading date |
+| `flock_transfers` | Flock movement/transfer records |
+| `feed_categories` | Feed type definitions |
+| `feed_inventory` | Current stock levels per category |
+| `feed_incoming` | Delivery records (bags → kg conversion) |
+| `feed_consumption` | Daily consumption per flock |
+| `mortality_records` | Mortality, culls, missex per flock |
+| `egg_production` | Hatching and non-hatching egg records |
+| `employees` | Employee records with tenure tracking |
 
 ## Current Structure
 
 | File/Directory | Purpose | Status |
 |----------------|---------|--------|
-| `src/app/page.tsx` | Home page | ✅ Ready |
-| `src/app/layout.tsx` | Root layout | ✅ Ready |
-| `src/app/globals.css` | Global styles | ✅ Ready |
-| `.kilocode/` | AI context & recipes | ✅ Ready |
+| `src/app/login/` | Login page with JWT auth | ✅ Ready |
+| `src/app/register/` | Registration page | ✅ Ready |
+| `src/app/dashboard/` | Main dashboard layout | ✅ Ready |
+| `src/app/dashboard/farm-profile/` | Farm profile management | ✅ Ready |
+| `src/app/dashboard/flock/` | Flock management | ✅ Ready |
+| `src/app/dashboard/feed/` | Feed management | ✅ Ready |
+| `src/app/dashboard/mortality/` | Mortality tracking | ✅ Ready |
+| `src/app/dashboard/egg-production/` | Egg production with Excel export | ✅ Ready |
+| `src/app/dashboard/employees/` | Employee management | ✅ Ready |
+| `src/app/dashboard/settings/` | Admin user access settings | ✅ Ready |
+| `src/components/Sidebar.tsx` | Responsive sidebar navigation | ✅ Ready |
+| `src/db/schema.ts` | Complete database schema | ✅ Ready |
+| `src/lib/auth.ts` | JWT authentication utilities | ✅ Ready |
 
-## Current Focus
+## User Access Levels
 
-The template is ready. Next steps depend on user requirements:
+| Role | Access |
+|------|--------|
+| Admin | Full access including user management |
+| Manager | Farm profile, flocks, feed, employees |
+| Supervisor | Flocks, mortality, egg production |
+| Worker | Record daily data (mortality, eggs) |
 
-1. What type of application to build
-2. What features are needed
-3. Design/branding preferences
+## Key Features
 
-## Quick Start Guide
-
-### To add a new page:
-
-Create a file at `src/app/[route]/page.tsx`:
-```tsx
-export default function NewPage() {
-  return <div>New page content</div>;
-}
-```
-
-### To add components:
-
-Create `src/components/` directory and add components:
-```tsx
-// src/components/ui/Button.tsx
-export function Button({ children }: { children: React.ReactNode }) {
-  return <button className="px-4 py-2 bg-blue-600 text-white rounded">{children}</button>;
-}
-```
-
-### To add a database:
-
-Follow `.kilocode/recipes/add-database.md`
-
-### To add API routes:
-
-Create `src/app/api/[route]/route.ts`:
-```tsx
-import { NextResponse } from "next/server";
-
-export async function GET() {
-  return NextResponse.json({ message: "Hello" });
-}
-```
-
-## Available Recipes
-
-| Recipe | File | Use Case |
-|--------|------|----------|
-| Add Database | `.kilocode/recipes/add-database.md` | Data persistence with Drizzle + SQLite |
-
-## Pending Improvements
-
-- [ ] Add more recipes (auth, email, etc.)
-- [ ] Add example components
-- [ ] Add testing setup recipe
+- **First user auto-becomes admin**
+- **Age in weeks** calculated from loading date
+- **Livability %** = (Ending Pop / Beginning Pop) × 100
+- **Depletion Rate %** = (Total Mortality / Beginning Pop) × 100
+- **Ending Inventory** = Beginning + Incoming - Consumed
+- **1 bag = 50 kg** feed conversion
+- **Tenure** calculated from hire date to resignation/today
+- **Employee ID** auto-generated (EMP-YEAR-XXXX)
+- **Excel export** for egg production records
 
 ## Session History
 
 | Date | Changes |
 |------|---------|
 | Initial | Template created with base setup |
+| 2026-03-08 | Complete Broiler Breeder Management App built |
