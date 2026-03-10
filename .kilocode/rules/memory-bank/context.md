@@ -93,3 +93,4 @@ A full-featured farm management application built on Next.js 16 with SQLite data
 | Initial | Template created with base setup |
 | 2026-03-08 | Complete Broiler Breeder Management App built |
 | 2026-03-08 | Added account recovery page for deactivated users |
+| 2026-03-10 | Fixed database driver - replaced @kilocode/app-builder-db with bun-sqlite for local SQLite support |
